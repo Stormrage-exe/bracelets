@@ -340,6 +340,38 @@ footer {
     transform: scale(1.1);
 }
 
+.filter-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    color: white;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.bracelet-box {
+    transition: all 0.3s ease;
+}
+
+.bracelet-box.hidden {
+    display: none;
+}
+
 /* Responsive stuff*/
 @media (max-width: 1024px) {
     .couple-photo {
