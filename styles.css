@@ -372,6 +372,31 @@ footer {
     display: none;
 }
 
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+.whatsapp-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
 /* Responsive stuff*/
 @media (max-width: 1024px) {
     .couple-photo {
