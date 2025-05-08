@@ -299,8 +299,45 @@ footer {
     transition: 0.5s;
 }
 
+
 .tiktok-btn:hover::before {
     left: 100%;
+}
+
+
+.facebook-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: blue; 
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.facebook-btn:hover {
+    transform: scale(1.1);
+}
+
+.vinted-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: greenyellow url('https://www.svgrepo.com/show/505055/vinted.svg') no-repeat center center;
+    background-size: 60%;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.vinted-btn:hover {
+    transform: scale(1.1);
 }
 
 /* Responsive stuff*/
