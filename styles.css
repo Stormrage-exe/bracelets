@@ -27,16 +27,14 @@ body {
 h1, h2, h3, h5, .business-text h1, .bracelet-name {
     font-family: var(--font-heading);
     font-weight: 700;
-    text-align:center;
-
+    text-align: center;
 }
 
-p{
-    text-align:center;
+p {
+    text-align: center;
 }
 
 header {
-
     padding: 1rem 2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -48,14 +46,12 @@ nav ul {
     height: 50px;
     margin: 0;
     padding: 0;
-
 }
 
 nav ul li {
     margin: 0 1rem;
     display: flex;
-   align-items:center;
-   
+    align-items: center;
 }
 
 nav ul li a {
@@ -68,34 +64,14 @@ nav ul li a {
     color: var(--text-color);
     font-weight: 500;
     transition: color 0.3s;
-    font-family: var(--font-body);
 }
 
 nav ul li a:hover {
     color: var(--accent-color);
 }
 
-.top-section {
-    display: flex;
-    padding: 3rem;
-    gap: 3rem;
-    align-items: flex-start;
-    max-width: 1300px;
-    margin: 0 auto;
-    height:500px;
-}
-
-.business-text {
-    flex: 1;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
-}
-
 .top-section-wrapper {
-    background-color: #e8e0d9;
+    background-color: var(--secondary-color);
     width: 100%;
 }
 
@@ -108,22 +84,29 @@ nav ul li a:hover {
     height: 500px;
 }
 
+.business-text {
+    flex: 1;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .product-showcase {
     flex: 1;
     position: relative;
     height: 400px;
     overflow: visible;
-    
 }
 
 .bracelet-photo {
-   left:20px;
+    position: absolute;
+    left: 20px;
     top: 14%;
-    width: 100%; 
-    height: 80%; 
+    width: 100%;
+    height: 80%;
     object-fit: cover;
     border-radius: 8px;
-    position: absolute;
 }
 
 .about-section {
@@ -132,7 +115,6 @@ nav ul li a:hover {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-  
 }
 
 .couple-photo {
@@ -142,21 +124,25 @@ nav ul li a:hover {
     background-size: cover;
     background-position: center;
     background-image: url('https://i.ibb.co/nMjyCTT4/Whats-App-Image-2025-05-07-at-20-48-55-348e5bac.jpg');
+    border-radius: 8px;
 }
 
 .about-text {
     flex: 1;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .bracelet-carousel {
     padding: 3rem 0;
     overflow: hidden;
+    background-color: var(--secondary-color);
     position: relative;
 }
 
 .carousel-container {
-    
     width: 100%;
     overflow: hidden;
 }
@@ -165,8 +151,7 @@ nav ul li a:hover {
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: carousel-scroll linear infinite;
-    padding-left: 100%;
+    animation: carousel-scroll 20s linear infinite;
 }
 
 .carousel-item {
@@ -187,15 +172,7 @@ nav ul li a:hover {
 
 @keyframes carousel-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-100% - 2rem)); }
-}
-@keyframes carousel-scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-50% - 1rem));
-    }
+    100% { transform: translateX(calc(-50% - 1rem)); }
 }
 
 .products-main {
@@ -209,6 +186,7 @@ nav ul li a:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
 }
+
 .bracelet-box {
     background-color: var(--white);
     border-radius: 8px;
@@ -222,7 +200,7 @@ nav ul li a:hover {
 
 .bracelet-image {
     width: 100%;
-    height: 200px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,9 +209,12 @@ nav ul li a:hover {
 }
 
 .bracelet-image img {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    transition: transform 0.3s;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
 .bracelet-name {
@@ -246,12 +227,15 @@ nav ul li a:hover {
     text-align: center;
     font-weight: bold;
     color: var(--accent-color);
-    margin-top: auto; /* This does the magic */
-    margin-bottom: 0.5rem;
+    margin-top: auto;
 }
 
 .bracelet-box:hover {
     transform: translateY(-5px);
+}
+
+.bracelet-box:hover .bracelet-image img {
+    transform: scale(1.05);
 }
 
 footer {
@@ -259,12 +243,13 @@ footer {
     text-align: center;
     margin-top: auto;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    background-color:#f8f5f2;
+    background-color: var(--primary-color);
 }
 
 .social-links {
     display: flex;
     justify-content: center;
+    gap: 1rem;
 }
 
 .instagram-btn {
@@ -284,6 +269,7 @@ footer {
     transform: scale(1.1);
 }
 
+/* Responsive stuff*/
 @media (max-width: 1024px) {
     .couple-photo {
         height: 450px;
@@ -291,110 +277,63 @@ footer {
 }
 
 @media (max-width: 900px) {
-
     .top-section, .about-section {
         flex-direction: column;
         padding: 2rem;
-    }
-
-    .product-showcase {
-        width: 100%;
-        height: 350px; 
-    }
-
-    .business-text {
         height: auto;
-        padding-bottom: 2rem;
-        text-align: center;
     }
 
-    .couple-photo {
-        height: 350px; 
-    }
-
-    .bracelets-container {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-
-    .about-section {
-        flex-direction: column;
-    }
-
-    .couple-photo {
+    .product-showcase, .business-text, .couple-photo {
         width: 100%;
-        height: 400px; 
-        order: 1;
-        margin-bottom: 2rem;
-    }
-
-    .about-text {
-        order: 2;
-        padding: 0;
-    }
-}
-
-@media (max-width: 900px) {
-    .about-section {
-        flex-direction: column;
-    }
-    
-    .couple-photo {
-        width: 100%;
-        min-height: 300px; 
-        aspect-ratio: 4/3;
-        background-attachment: scroll;
-    }
-}
-
-
-@media (max-width: 480px) {
-    .couple-photo {
-        min-height: 250px;
-        aspect-ratio: 1/1; 
-    }
-}
-
-@media (max-width: 768px) {
-
-    .top-section, .about-section {
-        padding: 1.5rem;
-        gap: 2rem;
-    }
-
-    .product-showcase {
         height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1rem;
     }
 
     .bracelet-photo {
         position: static;
-        width: 100%;
-        max-width: 500px;
-        height: auto;
         max-height: 400px;
-        margin: 1rem auto 0;
-        border-radius: 8px;
+        margin: 2rem auto 0;
     }
 
-    .couple-photo {
-        height: 300px;
+    .bracelets-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    .top-section, .about-section {
+        padding: 1.5rem;
+    }
 
     .bracelets-container {
         grid-template-columns: 1fr;
     }
 
-    .bracelet-photo {
-        max-height: 350px;
+    .carousel-track {
+        animation-duration: 30s;
     }
 
-    .carousel-track {
-        animation-duration: 30s; 
+    .bracelet-image {
+        height: 220px;
+    }
 }
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem;
+    }
+
+    .couple-photo {
+        aspect-ratio: 1/1;
+        height: 300px;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
 }
