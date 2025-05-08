@@ -397,6 +397,17 @@ footer {
     font-size: 16px;
 }
 
+.stock-status {
+    font-weight: bold;
+    margin-top: 2px;
+    color: green;
+  }
+  
+  .stock-status.out {
+    color: red;
+  }
+  
+
 /* Responsive stuff*/
 @media (max-width: 1024px) {
     .couple-photo {
