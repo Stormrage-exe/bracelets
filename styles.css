@@ -24,7 +24,7 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, .business-text h1, .bracelet-name {
+h1, h2, h3, h5, .business-text h1, .bracelet-name {
     font-family: var(--font-heading);
     font-weight: 700;
     text-align:center;
@@ -209,25 +209,31 @@ nav ul li a:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
 }
-
 .bracelet-box {
     background-color: var(--white);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s;
-}
-
-.bracelet-box:hover {
-    transform: translateY(-5px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .bracelet-image {
     width: 100%;
-    height: 250px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--secondary-color);
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+}
+
+.bracelet-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
 }
 
 .bracelet-name {
@@ -240,6 +246,12 @@ nav ul li a:hover {
     text-align: center;
     font-weight: bold;
     color: var(--accent-color);
+    margin-top: auto; /* This does the magic */
+    margin-bottom: 0.5rem;
+}
+
+.bracelet-box:hover {
+    transform: translateY(-5px);
 }
 
 footer {
