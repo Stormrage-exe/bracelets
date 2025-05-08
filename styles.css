@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+    --primary-color: #f8f5f2;
+    --secondary-color: #e8e0d9;
+    --accent-color: #c4b6a8;
+    --text-color: #4a4238;
+    --highlight-color: #f0e6d2;
+    --white: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .business-text h1, .bracelet-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-align:center;
+
+}
+
+p{
+    text-align:center;
+}
+
+header {
+
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+
+}
+
+nav ul li {
+    margin: 0 1rem;
+    display: flex;
+   align-items:center;
+   
+}
+
+nav ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+    font-family: var(--font-body);
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.top-section {
+    display: flex;
+    padding: 3rem;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: 0 auto;
+    height:500px;
+}
+
+.business-text {
+    flex: 1;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+}
+
+.top-section-wrapper {
+    background-color: #e8e0d9;
+    width: 100%;
+}
+
+.top-section {
+    display: flex;
+    padding: 3rem;
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.product-showcase {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    overflow: visible;
+    
+}
+
+.bracelet-photo {
+   left:20px;
+    top: 14%;
+    width: 100%; 
+    height: 80%; 
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+}
+
+.about-section {
+    display: flex;
+    padding: 3rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+}
+
+.couple-photo {
+    flex: 1;
+    height: 500px;
+    background-color: var(--secondary-color);
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://i.ibb.co/nMjyCTT4/Whats-App-Image-2025-05-07-at-20-48-55-348e5bac.jpg');
+}
+
+.about-text {
+    flex: 1;
+    padding: 1rem;
+}
+
+.bracelet-carousel {
+    padding: 3rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-container {
+    
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: carousel-scroll linear infinite;
+    padding-left: 100%;
+}
+
+.carousel-item {
+    width: 250px;
+    height: 150px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--white);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% - 2rem)); }
+}
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+.products-main {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bracelets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.bracelet-box {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.bracelet-box:hover {
+    transform: translateY(-5px);
+}
+
+.bracelet-image {
+    width: 100%;
+    height: 250px;
+    background-color: var(--secondary-color);
+    background-size: cover;
+    background-position: center;
+}
+
+.bracelet-name {
+    padding: 1rem;
+    text-align: center;
+}
+
+.bracelet-price {
+    padding: 0 1rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+footer {
+    padding: 4rem;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    background-color:#f8f5f2;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.instagram-btn:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .couple-photo {
+        height: 450px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .top-section, .about-section {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .product-showcase {
+        width: 100%;
+        height: 350px; 
+    }
+
+    .business-text {
+        height: auto;
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    .couple-photo {
+        height: 350px; 
+    }
+
+    .bracelets-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .about-section {
+        flex-direction: column;
+    }
+
+    .couple-photo {
+        width: 100%;
+        height: 400px; 
+        order: 1;
+        margin-bottom: 2rem;
+    }
+
+    .about-text {
+        order: 2;
+        padding: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column;
+    }
+    
+    .couple-photo {
+        width: 100%;
+        min-height: 300px; 
+        aspect-ratio: 4/3;
+        background-attachment: scroll;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .couple-photo {
+        min-height: 250px;
+        aspect-ratio: 1/1; 
+    }
+}
+
+@media (max-width: 768px) {
+
+    .top-section, .about-section {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .product-showcase {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .bracelet-photo {
+        position: static;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        max-height: 400px;
+        margin: 1rem auto 0;
+        border-radius: 8px;
+    }
+
+    .couple-photo {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .bracelets-container {
+        grid-template-columns: 1fr;
+    }
+
+    .bracelet-photo {
+        max-height: 350px;
+    }
+
+    .carousel-track {
+        animation-duration: 30s; 
+}
+}
