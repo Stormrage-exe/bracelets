@@ -243,19 +243,91 @@
             </div>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelectorAll('.bracelet-image').forEach(imageContainer => {
+                        const images = imageContainer.querySelectorAll('img');
+                        const prevBtn = imageContainer.querySelector('.prev');
+                        const nextBtn = imageContainer.querySelector('.next');
+                        
+                        let currentIndex = 0;
+                        
+                        function showImage(index) {
+                            images.forEach(img => img.classList.remove('active'));
+                            images[index].classList.add('active');
+                        }
+                    
+                        if (images.length > 1) {
+                            imageContainer.classList.add('multiple-images');
+                            
+                            prevBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                                showImage(currentIndex);
+                            });
+                            
+                            nextBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                currentIndex = (currentIndex + 1) % images.length;
+                                showImage(currentIndex);
+                            });
+                            
+                            showImage(0);
+                        } else if (images.length === 1) {
+                            images[0].classList.add('active');
+                        }
+                
+                        // Zoom 
+                        imageContainer.addEventListener('click', (e) => {
+                            if (e.target.classList.contains('carousel-arrow')) return;
+                            
+                            const activeImage = imageContainer.querySelector('img.active');
+                            if (!activeImage) return;
+                            
+                            const zoomOverlay = document.createElement('div');
+                            zoomOverlay.style.position = 'fixed';
+                            zoomOverlay.style.top = '0';
+                            zoomOverlay.style.left = '0';
+                            zoomOverlay.style.width = '100%';
+                            zoomOverlay.style.height = '100%';
+                            zoomOverlay.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                            zoomOverlay.style.display = 'flex';
+                            zoomOverlay.style.justifyContent = 'center';
+                            zoomOverlay.style.alignItems = 'center';
+                            zoomOverlay.style.zIndex = '1000';
+                            zoomOverlay.style.cursor = 'zoom-out';
+                            
+                            const zoomedImg = document.createElement('img');
+                            zoomedImg.src = activeImage.src;
+                            zoomedImg.style.maxWidth = '90%';
+                            zoomedImg.style.maxHeight = '90%';
+                            zoomedImg.style.objectFit = 'contain';
+                            
+                            let scale = 1;
+                            zoomedImg.addEventListener('wheel', (e) => {
+                                e.preventDefault();
+                                scale += e.deltaY * -0.01;
+                                scale = Math.min(Math.max(1, scale), 3);
+                                zoomedImg.style.transform = `scale(${scale})`;
+                            });
+                            
+                            zoomOverlay.addEventListener('click', () => {
+                                document.body.removeChild(zoomOverlay);
+                            });
+                            
+                            zoomOverlay.appendChild(zoomedImg);
+                            document.body.appendChild(zoomOverlay);
+                        });
+                    });
+                
                     const filterBtns = document.querySelectorAll('.filter-btn');
                     const braceletBoxes = document.querySelectorAll('.bracelet-box');
                     
                     filterBtns.forEach(btn => {
                         btn.addEventListener('click', function() {
-                          
                             filterBtns.forEach(b => b.classList.remove('active'));
-                          
                             this.classList.add('active');
                             
                             const filter = this.dataset.filter;
                             
-                          
                             braceletBoxes.forEach(box => {
                                 if (filter === 'all' || box.dataset.material === filter) {
                                     box.classList.remove('hidden');
@@ -266,65 +338,8 @@
                         });
                     });
                 });
-            </script>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.bracelet-image').forEach(imageContainer => {
-        const images = imageContainer.querySelectorAll('img');
-        const prevBtn = imageContainer.querySelector('.prev');
-        const nextBtn = imageContainer.querySelector('.next');
-        
-        let currentIndex = 0;
-        
-        function showImage(index) {
-            images.forEach(img => img.classList.remove('active'));
-            images[index].classList.add('active');
-        }
-    
-        if (images.length > 1) {
-            imageContainer.classList.add('multiple-images');
+                </script>
             
-            prevBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                showImage(currentIndex);
-            });
-            
-            nextBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentIndex = (currentIndex + 1) % images.length;
-                showImage(currentIndex);
-            });
-            
-       
-            showImage(0);
-        } else if (images.length === 1) {
-            images[0].classList.add('active');
-        }
-    });
-
- 
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const braceletBoxes = document.querySelectorAll('.bracelet-box');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.dataset.filter;
-            
-            braceletBoxes.forEach(box => {
-                if (filter === 'all' || box.dataset.material === filter) {
-                    box.classList.remove('hidden');
-                } else {
-                    box.classList.add('hidden');
-                }
-            });
-        });
-    });
-});
-            </script>
         </div>
     </main>
     <footer>
