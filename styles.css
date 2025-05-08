@@ -269,6 +269,40 @@ footer {
     transform: scale(1.1);
 }
 
+.tiktok-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #000000; /* TikTok's black background */
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tiktok-btn:hover {
+    transform: scale(1.1);
+}
+
+.tiktok-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #25F4EE, #FE2C55, transparent);
+    transition: 0.5s;
+}
+
+.tiktok-btn:hover::before {
+    left: 100%;
+}
+
 /* Responsive stuff*/
 @media (max-width: 1024px) {
     .couple-photo {
